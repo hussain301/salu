@@ -1,0 +1,13 @@
+{
+  "name": "salu-scraper",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Recovers the original 2022 salu.edu.pk WordPress content from the Wayback Machine into import data for the salu-core plugin.",
+  "scripts": {
+    "scrape": "node scrape.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

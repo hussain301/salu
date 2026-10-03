@@ -1,0 +1,48 @@
+{
+  "name": "salu-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shah Abdul Latif University, Khairpur website with content management (Next.js + Payload CMS).",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
+    "postbuild": "node scripts/postbuild.mjs",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation node -r dotenv/config .next/standalone/server.js",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "scrape": "node scraper/scrape.mjs",
+    "import": "cross-env NODE_OPTIONS=--no-deprecation payload run scripts/import.ts",
+    "seed": "cross-env NODE_OPTIONS=--no-deprecation payload run scripts/seed.ts"
+  },
+  "dependencies": {
+    "@payloadcms/db-sqlite": "3.90.2",
+    "@payloadcms/next": "3.90.2",
+    "@payloadcms/richtext-lexical": "3.90.2",
+    "@payloadcms/ui": "3.90.2",
+    "cross-env": "^7.0.3",
+    "dotenv": "16.4.7",
+    "graphql": "^16.8.1",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.26",
+    "next": "16.3.8",
+    "payload": "3.90.2",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "22.19.9",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "jsdom": "28.0.0",
+    "tsx": "4.22.4",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

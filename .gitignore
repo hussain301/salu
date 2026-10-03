@@ -1,0 +1,32 @@
+# dependencies / build output
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# secrets
+.env
+.env.local
+.env.*.local
+
+# logs / runtime
+logs/
+*.log
+data/*.db-wal
+data/*.db-shm
+data/backups/
+backups/
+
+# scraper cache (media already imported into /media)
+scraper/.cache/
+scraper/data/media/
+
+# local tooling
+.agents/
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+test-results/
+playwright-report/

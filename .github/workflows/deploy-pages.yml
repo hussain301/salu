@@ -1,0 +1,70 @@
+# Builds a read-only static snapshot of the public website and publishes it on GitHub Pages.
+# NOTE: GitHub Pages is static hosting only - the Payload admin (/admin), API and database
+# do NOT run there. The real CMS runs on the university's Node/IIS server (see README.md).
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      STATIC_EXPORT: '1'
+      NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+      NEXT_PUBLIC_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+      PAYLOAD_SECRET: ci-static-build-only
+      DATABASE_URI: file:./data/salu.db
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci || npm install --no-audit --no-fund
+
+      - name: Prepare static export (drop admin/API routes, ISR config)
+        run: node scripts/prepare-static.mjs
+
+      - name: Build static site
+        run: npx next build
+
+      - name: Add media files and Pages extras
+        run: |
+          mkdir -p out/api/media/file
+          cp -r media/. out/api/media/file/
+          touch out/.nojekyll
+          du -sh out
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
