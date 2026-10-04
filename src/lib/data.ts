@@ -25,7 +25,10 @@ export function mediaUrl(m: MediaLike, size?: 'thumbnail' | 'card' | 'hero'): st
     // strip absolute origin so it works behind any host / reverse proxy
     const u = new URL(raw, 'http://x')
     // static export: files are copied as plain files, so drop the query string
-    return BASE_PATH + u.pathname + (IS_STATIC ? '' : u.search)
+    let p = u.pathname
+    if (BASE_PATH && (p === BASE_PATH || p.startsWith(BASE_PATH + '/'))) p = p.slice(BASE_PATH.length)
+    if (IS_STATIC) p = p.replace(/\/+$/, '')
+    return BASE_PATH + p + (IS_STATIC ? '' : u.search)
   } catch {
     return raw
   }
