@@ -4,6 +4,7 @@ import Header, { type NavItem } from '@/components/Header'
 import Footer from '@/components/Footer'
 import Motion from '@/components/Motion'
 import { getGlobals, mediaUrl } from '@/lib/data'
+import { themeInitScript } from '@/lib/theme'
 import './styles.css'
 
 const display = Fraunces({ subsets: ['latin'], variable: '--font-display', display: 'swap', axes: ['opsz'] })
@@ -26,7 +27,11 @@ export default async function FrontendLayout({ children }: { children: React.Rea
   const siteName = settings.siteName || 'Shah Abdul Latif University'
 
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body id="top">
         <a href="#main-content" className="skip-link">
           Skip to content

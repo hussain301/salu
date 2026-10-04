@@ -15,6 +15,10 @@
   --line: #e4e8e5;
   --bg: #f8f7f2;
   --card: #ffffff;
+  --row-alt: #fafbf9;
+  --bg-alt: #eef3ef;
+  --ph-alt: #e9f7f0;
+  --header-glass: rgba(248, 247, 242, 0.82);
   --accent: var(--green-700);
   --radius: 22px;
   --radius-sm: 12px;
@@ -274,7 +278,7 @@ h4 {
   transition: transform 0.5s var(--ease), background 0.4s, color 0.4s, box-shadow 0.4s;
 }
 .site-header.is-scrolled {
-  background: rgba(248, 247, 242, 0.82);
+  background: var(--header-glass);
   backdrop-filter: saturate(1.6) blur(16px);
   -webkit-backdrop-filter: saturate(1.6) blur(16px);
   color: var(--ink);
@@ -413,7 +417,7 @@ h4 {
 .mega-inner {
   width: min(1180px, 100%);
   margin: 0 auto;
-  background: #fff;
+  background: var(--card);
   color: var(--ink);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
@@ -1107,7 +1111,7 @@ html.nav-open {
 
 /* ---------------- faculties ---------------- */
 .faculties-section {
-  background: linear-gradient(180deg, var(--bg), #eef3ef);
+  background: linear-gradient(180deg, var(--bg), var(--bg-alt));
 }
 .faculty-grid {
   display: grid;
@@ -1250,7 +1254,7 @@ html.nav-open {
   font-family: var(--font-display);
   font-size: 2rem;
   color: var(--green-700);
-  background: repeating-linear-gradient(45deg, var(--green-100), var(--green-100) 12px, #e9f7f0 12px, #e9f7f0 24px);
+  background: repeating-linear-gradient(45deg, var(--green-100), var(--green-100) 12px, var(--ph-alt) 12px, var(--ph-alt) 24px);
 }
 .news-card-media .chip {
   position: absolute;
@@ -1312,7 +1316,7 @@ html.nav-open {
 
 /* ---------------- events ---------------- */
 .events-section {
-  background: #fff;
+  background: var(--card);
 }
 .events {
   list-style: none;
@@ -1481,7 +1485,7 @@ html.nav-open {
   align-items: center;
   padding: 22px 24px;
   border-radius: var(--radius-sm);
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   font-weight: 600;
   transition: background 0.4s, color 0.4s, transform 0.4s var(--ease);
@@ -1629,7 +1633,7 @@ html.nav-open {
 .side-nav {
   position: sticky;
   top: 100px;
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 24px;
@@ -1802,7 +1806,7 @@ html.nav-open {
   margin: 1.8em 0;
   padding: 18px 24px;
   border-left: 4px solid var(--gold);
-  background: #fff;
+  background: var(--card);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-style: italic;
   box-shadow: 0 2px 12px -4px rgba(4, 35, 27, 0.05);
@@ -1817,7 +1821,7 @@ html.nav-open {
   margin: 1.8em 0;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: #fff;
+  background: var(--card);
   box-shadow: 0 4px 16px -8px rgba(4, 35, 27, 0.08);
 }
 .prose table,
@@ -1829,7 +1833,7 @@ table.legacy-table {
   border-collapse: collapse;
   font-size: 0.93rem;
   line-height: 1.5;
-  background: #fff;
+  background: var(--card);
   margin: 0;
 }
 .prose th,
@@ -1862,7 +1866,7 @@ table.legacy-table td {
 .prose-salu tr:nth-child(even) td,
 .content-article tr:nth-child(even) td,
 table.legacy-table tr:nth-child(even) td {
-  background: #fafbf9;
+  background: var(--row-alt);
 }
 .prose tbody tr:hover td,
 .prose-salu tbody tr:hover td,
@@ -1891,7 +1895,7 @@ table.legacy-table tbody tr:hover td {
 .wp-caption {
   margin: 1.6em auto;
   max-width: 100%;
-  background: #fff;
+  background: var(--card);
   padding: 10px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--line);
@@ -1945,7 +1949,7 @@ table.legacy-table tbody tr:hover td {
   gap: 28px;
   align-items: center;
   padding: 26px;
-  background: #fff;
+  background: var(--card);
   border-radius: var(--radius);
   border: 1px solid var(--line);
   margin-bottom: 40px;
@@ -1971,7 +1975,7 @@ table.legacy-table tbody tr:hover td {
 .program {
   padding: 22px;
   border-radius: var(--radius-sm);
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   transition: transform 0.4s var(--ease), box-shadow 0.4s;
 }
@@ -1996,7 +2000,7 @@ table.legacy-table tbody tr:hover td {
 .person {
   text-align: center;
   padding: 26px 18px;
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   transition: box-shadow 0.4s;
@@ -2012,11 +2016,11 @@ table.legacy-table tbody tr:hover td {
   overflow: hidden;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, var(--green-100), #fff);
+  background: linear-gradient(135deg, var(--green-100), var(--card));
   font-family: var(--font-display);
   font-size: 2.4rem;
   color: var(--green-700);
-  box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--green-100);
+  box-shadow: 0 0 0 4px var(--card), 0 0 0 6px var(--green-100);
 }
 .person-photo img {
   width: 100%;
@@ -2065,7 +2069,7 @@ table.legacy-table tbody tr:hover td {
   display: flex;
   flex-direction: column;
   border-radius: var(--radius);
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   overflow: hidden;
   transition: box-shadow 0.4s, border-color 0.4s;
@@ -2112,7 +2116,7 @@ table.legacy-table tbody tr:hover td {
   gap: 30px;
   padding: 32px;
   border-radius: var(--radius);
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-left: 6px solid var(--accent);
 }
@@ -2155,7 +2159,7 @@ table.legacy-table tbody tr:hover td {
   padding: 9px 18px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--card);
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.3s var(--ease);
@@ -2205,7 +2209,7 @@ table.legacy-table tbody tr:hover td {
   transform: scale(1.08);
 }
 .more-news {
-  background: #fff;
+  background: var(--card);
 }
 
 .doc-list {
@@ -2218,7 +2222,7 @@ table.legacy-table tbody tr:hover td {
   gap: 18px;
   align-items: center;
   padding: 18px 20px;
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   transition: border-color 0.3s, box-shadow 0.4s, transform 0.4s var(--ease);
@@ -2776,4 +2780,136 @@ html.reduce-motion .ticker-move {
 }
 html.reduce-motion .scroll-cue {
   display: none !important;
+}
+
+/* =====================================================================
+   Theme toggle + dark theme
+   (data-theme is set on <html> before paint; default = OS preference)
+   ===================================================================== */
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: none;
+  color: inherit;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  transition: background 0.3s, transform 0.5s var(--ease);
+}
+.theme-toggle:hover {
+  background: rgba(127, 127, 127, 0.16);
+  transform: rotate(-20deg);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+.theme-toggle svg {
+  grid-area: 1 / 1;
+  transition: transform 0.5s var(--ease), opacity 0.3s;
+}
+.theme-toggle .ico-sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+html[data-theme='dark'] .theme-toggle .ico-sun {
+  opacity: 1;
+  transform: none;
+}
+html[data-theme='dark'] .theme-toggle .ico-moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+html.theme-anim,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+  transition: background-color 0.45s ease, color 0.45s ease, border-color 0.45s ease, fill 0.45s ease !important;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --ink: #e4ece8;
+  --muted: #9fb2aa;
+  --line: #24352f;
+  --bg: #0a1310;
+  --card: #111d19;
+  --row-alt: #0e1915;
+  --bg-alt: #0d1814;
+  --ph-alt: #1b4235;
+  --green-100: #16362b;
+  --header-glass: rgba(10, 19, 16, 0.82);
+  --shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 40px 80px -30px rgba(0, 0, 0, 0.8);
+  --brand-text: #45d39d;
+  --brand-text-strong: #bff0da;
+}
+
+/* brand-green text needs to be lighter on dark surfaces */
+html[data-theme='dark'] :is(.eyebrow, .link-arrow, .mega-col li a:hover, .vc-ph, .news-card-ph, .read-more, .content-article a, .person-photo, .person-links, .filters a:hover, .pager a, .doc-dl) {
+  color: var(--brand-text);
+}
+html[data-theme='dark'] .content-article li::marker {
+  color: var(--brand-text);
+}
+html[data-theme='dark'] :is(.chip, .mega-heading, .side-nav h3, .side-nav li a:hover, .doc-ext, .content-article h2, .content-article h3, .content-article h6, .content-article b) {
+  color: var(--brand-text-strong);
+}
+html[data-theme='dark'] :is(.filters a:hover, .doc:hover) {
+  border-color: var(--brand-text);
+}
+html[data-theme='dark'] .news-card-media .chip {
+  background: rgba(10, 19, 16, 0.85);
+}
+html[data-theme='dark'] .btn-ghost {
+  --hover: var(--green-700);
+}
+/* sections that are dark green in light mode get a slightly deeper tone */
+html[data-theme='dark'] :is(.stats-section, .campuses-section, .site-footer, .hero) {
+  background-color: #03170f;
+}
+html[data-theme='dark'] .ticker-label {
+  background: #03170f;
+}
+html[data-theme='dark'] .mobile-nav {
+  background: #06140f;
+}
+html[data-theme='dark'] .doc-status.closed {
+  background: #3b1515;
+  color: #fca5a5;
+}
+html[data-theme='dark'] img:not([src*='.svg']) {
+  filter: brightness(0.92);
+}
+/* imported 2022 HTML often hard-codes black text / white backgrounds */
+html[data-theme='dark'] .content-article :is([style*='color'], font[color]) {
+  color: inherit !important;
+}
+html[data-theme='dark'] .content-article :is([bgcolor], [style*='background']) {
+  background: transparent !important;
+}
+html[data-theme='dark'] body:has(.notfound) .site-header:not(.is-scrolled) {
+  color: var(--ink);
+}
+
+/* small phones: make room for logo + theme toggle + menu button */
+@media (max-width: 640px) {
+  .header-inner {
+    gap: 10px;
+  }
+  .brand {
+    flex-shrink: 1;
+    gap: 10px;
+  }
+  .header-actions {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
 }

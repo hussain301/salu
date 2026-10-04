@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
+import ThemeToggle from './ThemeToggle'
 
 export type NavLink = { label: string; url?: string | null }
 export type NavItem = NavLink & {
@@ -238,6 +239,7 @@ export default function Header({
               </SmartLink>
             </span>
           )}
+          <ThemeToggle />
           <button
             className={`burger ${mobile ? 'active' : ''}`}
             aria-label={mobile ? 'Close navigation menu' : 'Open navigation menu'}
